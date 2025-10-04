@@ -3,7 +3,7 @@ import time
 import speech_recognition as sr
 
 from command_handlers import *
-from src.silence_alsa import silence_alsa
+from silence_alsa import silence_alsa
 
 hotword = "hey assistant"
 commands = {"search": search_handler, "stop": stop_handler, "chrome 2": chrome2_handler}
@@ -21,21 +21,17 @@ def speech_handler(recognizer, audio):
                     arg = command[len(key):].strip()
                     commands[key](arg)
                     break
-            # Here you can add more command processing logic
-            # For example, respond with TTS
-            # tts_engine.say(f"You said: {command}")
-            # tts_engine.runAndWait()
 
     except sr.UnknownValueError:
         pass
     except sr.RequestError as e:
         print(f"API error: {e}")
 
+
 if __name__ == "__main__":
     silence_alsa()
 
     recognizer = sr.Recognizer()
-    # tts_engine = pyttsx3.init()
     mic = sr.Microphone()
 
     # Start listening in the background
