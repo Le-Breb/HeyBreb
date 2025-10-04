@@ -1,3 +1,5 @@
+import time
+
 import speech_recognition as sr
 
 from command_handlers import *
@@ -40,7 +42,6 @@ if __name__ == "__main__":
     stop_listening = recognizer.listen_in_background(mic, speech_handler)
 
     print("Listening in background... Press Ctrl+C to stop.")
-    import time
 
     while True:
-        time.sleep(0.1)  # keep the main thread alive
+        time.sleep(20000)  # keep the main thread alive
