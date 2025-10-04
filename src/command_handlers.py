@@ -10,3 +10,8 @@ def search_handler(query):
 def stop_handler(query):
     print("Stopping the assistant.")
     os._exit(0)
+
+def chrome2_handler(query):
+    url = "https://www.google.com"
+    print(f"Opening URL in Chrome profile 2: {url}")
+    os.system(f"google-chrome --profile-directory='Profile 2' {shlex.quote(url)} &")

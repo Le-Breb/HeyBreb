@@ -6,7 +6,7 @@ from command_handlers import *
 from src.silence_alsa import silence_alsa
 
 hotword = "hey assistant"
-commands = {"search": search_handler, "stop": stop_handler}
+commands = {"search": search_handler, "stop": stop_handler, "chrome 2": chrome2_handler}
 
 def speech_handler(recognizer, audio):
     try:
